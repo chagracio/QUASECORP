@@ -51,7 +51,7 @@
 									</div>
 									<div class="product-body">
 										<h3 class="product-name"><a href="#">{{r.rice.name}}</a></h3>
-										<h4 class="product-price"><span class="qty">{{r.quantity}}x</span>₱{{r.rice.price}}</h4>
+										<h4 class="product-price"><span class="qty">{{r.quantity}}x</span>₱{{r.get_total}}</h4>
 									</div>
 									<button class="delete update-cart" data-product="{{r.rice.id}}" data-action="del"><i class="fa fa-close"></i></button>
 								</div>
@@ -154,30 +154,6 @@
 					<!-- </form>											 -->
 					
 				</div>
-				<!-- /Billing Details -->
-
-				<!-- Shiping Details
-				<div class="shiping-details">
-					<div class="section-title">
-						<h3 class="title">Rice Lending</h3>
-					</div>
-					<div class="input-checkbox">
-						<input type="checkbox" id="shiping-address">
-						<label for="shiping-address">
-							<span></span>
-							Apply for Rice Loan?
-						</label>
-						<div class="caption">
-						<div class="form-group">
-								<input class="input" type="text" name="name" placeholder="Complete Name of Lender">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Current address">
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-/Shiping Details -->
 				<!-- Order notes -->
 				<div class="order-notes">
 					<textarea class="input" placeholder="Order Notes"></textarea>
@@ -323,9 +299,6 @@
 	var total = '{{order.get_cart_total}}'
 
 	var rice_ordered = '{{riceitems}}'
-	
-	// var quantity = document.getElementById('quantity').value
-	// var ricename= document.getElementById('ricename').value
 
 	var form = document.getElementById('form')
 
@@ -355,10 +328,6 @@
 		userFormData.tel = form.tel.value
 		userFormData.address = form.address.value
 		userFormData.shippingMeth = form.shippingMeth.value
-
-		// userFormData.rice_ordered = form.rice_ordered.value
-		// userFormData.rice_ordered.push(form.rice_ordered.quantity, form.rice_ordered.rice.name)
-
 
 		var url = "/process_order/"
 		fetch(url, {

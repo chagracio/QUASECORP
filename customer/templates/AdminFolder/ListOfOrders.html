@@ -191,7 +191,7 @@
                         <td>{{deets.customer.name}}</td>
                         <td>                                                   
                           <ul>
-                            {% for rice in deets.rice_ordered.all %}
+                            {% for rice in deets.order.orderriceitems_set.all %}
                               <li>
                                 {{rice.rice.name}} ({{rice.quantity}}x)
                               </li>

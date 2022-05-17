@@ -133,8 +133,6 @@ def processOrder(request):
 
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-    # riceitems = order.orderriceitems_set.all()
-
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
 
@@ -142,12 +140,9 @@ def processOrder(request):
         order.complete = True      
     order.save()
 
-    OrderDetails.rice_ordered = OrderRiceItems.objects.all()
-
     OrderDetails.objects.create(
         customer=customer,
         order=order,
-        # rice_ordered = OrderDetails.rice_ordered,
         total_payment=total,
         address=data['form']['address'],
         ContactNum=data['form']['tel'],
