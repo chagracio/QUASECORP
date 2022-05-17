@@ -175,7 +175,7 @@
 						{% for r in riceitems %}
 						<div class="order-col">
 							<div class="quantity">{{r.quantity}}x <span class="ricename">{{r.rice.name}}</span></div>
-							<div>₱{{r.rice.price}}</div>
+							<div>₱{{r.get_total}</div>
 						</div>
 						{% endfor %}
 					</div>
