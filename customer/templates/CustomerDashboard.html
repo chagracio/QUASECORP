@@ -152,7 +152,7 @@
                         <td colspan="3">
 								<ul>
 									<br>
-								{% for rice in r.rice_ordered.all %}	
+								{% for rice in r.order.orderriceitems_set.all %}	
 								<div class="product-box">
 								<div class="order-img">
 									<img src="{{rice.rice.image.url}}" alt="">
